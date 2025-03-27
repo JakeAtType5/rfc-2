@@ -19,7 +19,7 @@ export default function Footer() {
     <footer>
       <div className="content-wrapper">
         <div className="footer-logo">
-          <p className="bold-24">Ready.</p>
+          <p className="bold-24">KOYO こうよう</p>
           <p className="italic-20">
             Collectible museum-quality art from seriously talented upcoming
             artists.
@@ -44,7 +44,7 @@ export default function Footer() {
 
         <div className="footer-bar">
           <p className="semi-bold-14">
-            Copyright 2024 Ready For Collection. All rights reserved.
+            Copyright 2025 KOYO こうよう. All rights reserved.
           </p>
           <div className="social-links">
             <FontAwesomeIcon icon={faInstagram} />
