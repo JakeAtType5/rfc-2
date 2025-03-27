@@ -1,4 +1,4 @@
-import { faMagnifyingGlass, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Await } from "@remix-run/react";
 import { CartForm } from "@shopify/hydrogen";
@@ -10,12 +10,20 @@ import { CartDrawer } from "~/components/cart/CartDrawer";
 import CartToggle from "~/components/cart/CartToggle";
 import { CartStateContext } from "~/components/global/CartStateWrapper";
 import { CountrySelector } from "~/components/global/CountrySelector";
+import { LanguageSelector } from "~/components/global/LanguageSelector";
 import { Link } from "~/components/Link";
 import { useCartFetchers } from "~/hooks/useCartFetchers";
 import { useRootLoaderData } from "~/root";
 
+// Define types for CartStateContext
+type CartState = {
+  cartIsOpen: boolean;
+  openDrawer: () => void;
+  closeDrawer: () => void;
+};
+
 export default function HeaderActions() {
-  const { cartIsOpen, openDrawer, closeDrawer } = useContext(CartStateContext);
+  const { cartIsOpen, openDrawer, closeDrawer } = useContext(CartStateContext) as CartState;
 
   const { cart, sanityCartResults } = useRootLoaderData();
 
@@ -35,7 +43,7 @@ export default function HeaderActions() {
 
   return (
     <div className="navigation-actions">
-      {/* Country select
+      {/* Country selector */}
       <div
         className={clsx(
           "hidden", //
@@ -43,10 +51,20 @@ export default function HeaderActions() {
         )}
       >
         <CountrySelector />
-      </div> */}
+      </div>
 
-      {/* Search */}
-      <FontAwesomeIcon icon={faMagnifyingGlass} />
+      {/* Language selector */}
+      <div
+        className={clsx(
+          "hidden", //
+          "lg:block"
+        )}
+      >
+        <LanguageSelector />
+      </div>
+
+      {/* Search *
+      <FontAwesomeIcon icon={faMagnifyingGlass} /> *}
 
       {/* Account
       <Link
@@ -76,7 +94,7 @@ export default function HeaderActions() {
               cart={cart as Cart}
               open={cartIsOpen}
               onClose={closeDrawer}
-              sanityCartResults={sanityCartResults}
+              sanityCartResults={(sanityCartResults || []) as any}
             />
           </>
         )}

@@ -19,11 +19,11 @@ export const countries: Localizations = {
     label: "UK (GBP £)",
     currency: "GBP",
   },
-  "/no-no": {
-    language: "NO",
-    country: "NO",
-    label: "Norway (NOK kr)",
-    currency: "NOK",
+  "/ja-jp": {
+    language: "JA",
+    country: "JP",
+    label: "Japan (JPY ¥)",
+    currency: "JPY",
   },
 };
 

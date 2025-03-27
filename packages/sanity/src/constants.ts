@@ -32,5 +32,5 @@ export const ENVIRONMENT = Symbol('Sanity Environment')
 
 export const LANGUAGES = [
   {id: 'en', title: 'English', icon: '🇬🇧', previewUrl: ''},
-  {id: 'no', title: 'Norwegian', icon: '🇳🇴', previewUrl: 'no-no'},
+  {id: 'ja', title: 'Japanese', icon: '🇯🇵', previewUrl: 'ja-ja'}
 ]

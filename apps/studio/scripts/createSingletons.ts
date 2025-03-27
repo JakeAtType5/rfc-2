@@ -24,7 +24,7 @@ const SINGLETONS = [
 ]
 const LANGUAGES = [
   {id: 'en', title: 'English'},
-  {id: 'no', title: 'Norwegian'},
+  {id: 'ja', title: 'Japanese'}
 ]
 
 // This will use the client configured in ./sanity.cli.ts
