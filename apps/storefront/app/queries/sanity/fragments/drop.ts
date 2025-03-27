@@ -10,6 +10,9 @@ export const DROP = groq`
     ${PORTABLE_TEXT}
   },
   description,
+  heroShot[]{
+    ${PORTABLE_TEXT}
+  },
   gallery[]{
     ${PORTABLE_TEXT}
   },

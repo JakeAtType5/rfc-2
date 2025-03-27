@@ -119,6 +119,34 @@ export default function DropHandle() {
     useLoaderData<typeof loader>();
 
   const { handle } = useParams();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Function to check if screen width is mobile
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768); // Common breakpoint for mobile
+    };
+    
+    // Check on initial render
+    checkIfMobile();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", checkIfMobile);
+
+    // Explicitly handle resize events
+    const handleResize = () => {
+      checkIfMobile();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listeners on component unmount
+    return () => {
+      window.removeEventListener("resize", checkIfMobile);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <SanityPreview
       data={page}
@@ -133,8 +161,8 @@ export default function DropHandle() {
 
           {products?.length >= 1 && (
             <section className="drop-products narrow-section product-section">
-              <p className="semi-bold-24 section-header">Explore this drop</p>
-              <ProductCollection products={products} style="collage" />
+              <p className="semi-bold-24 section-header">Explore the release リリースを探索する</p>
+              <ProductCollection products={products} style={isMobile ? "row" : "collage"} />
             </section>
           )}
 

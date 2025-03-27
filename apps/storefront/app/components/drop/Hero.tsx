@@ -6,6 +6,7 @@ import type { SanityDrop } from "~/lib/sanity";
 import { useRootLoaderData } from "~/root";
 
 import VideoPlayerPreview from "../video/PreviewPlayer";
+import { PortableText } from "@portabletext/react";
 
 type Props = {
   drop: SanityDrop;
@@ -27,8 +28,9 @@ export default function DropHero({ drop, onlyHeader = false }: Props) {
       </div>
 
       {!onlyHeader && (
+
         <div className="drop-video">
-          {drop?.video?.playbackId ? (
+          {/* {drop?.video?.playbackId ? (
             <VideoPlayerPreview
               playbackId={drop.video.playbackId}
               assetId={drop.video.assetId}
@@ -39,7 +41,13 @@ export default function DropHero({ drop, onlyHeader = false }: Props) {
             <div className="video-empty-state">
               <p className="semi-bold-32">Episode coming soon...</p>
             </div>
-          )}
+          )} */}
+          {drop?.heroShot && (
+              <section className="drop-gallery narrow-section product-section">
+                <p className="semi-bold-24 section-header">Behind the scenes</p>
+                <PortableText blocks={drop.heroShot} className="gallery" />
+              </section>
+            )}
         </div>
       )}
     </section>

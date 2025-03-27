@@ -108,6 +108,12 @@ export default defineType({
         ]
       },
       {
+        name: 'heroGallery',
+        title: 'Hero Shot',
+        type: 'body',
+        group: 'content',
+      },
+      {
         name: 'gallery',
         title: 'Gallery',
         type: 'body',
@@ -127,12 +133,12 @@ export default defineType({
       },
     
     // video
-    {
-      title: 'Video file',
-      name: 'video',
-      group: 'episode',
-      type: 'mux.video',
-    },
+    // {
+    //   title: 'Video file',
+    //   name: 'video',
+    //   group: 'episode',
+    //   type: 'mux.video',
+    // },
 
     // Products
     {

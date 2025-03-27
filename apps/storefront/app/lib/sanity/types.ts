@@ -338,6 +338,8 @@ export type SanityProductPage = {
   bundles: [];
   description: string;
   drop?: SanityDrop;
+    gallery: PortableTextBlock[];
+
   gallery: PortableTextBlock[];
   gid: string;
   maxUnits: number;
@@ -388,6 +390,7 @@ export type SanityDrop = {
   credits?: PortableTextBlock[];
   description?: string;
   gallery: PortableTextBlock[];
+  heroShot: PortableTextBlock[];
   location?: string;
   notes: PortableTextBlock[];
   number?: number;
